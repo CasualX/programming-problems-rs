@@ -83,3 +83,10 @@ path = "src/list, strings/14-number-digits.rs"
 [[bin]]
 name = "liststrings-18"
 path = "src/list, strings/18-framed.rs"
+
+[[bin]]
+name = "intermediate-1"
+path = "src/intermediate/1-permutations.rs"
+[[bin]]
+name = "intermediate-2"
+path = "src/intermediate/2-leap-years.rs"
