@@ -2,3 +2,40 @@
 name = "programming-problems"
 version = "0.1.0"
 authors = ["CasualX <CasualX@github.com>"]
+
+[dependencies]
+rand = "0.3"
+
+[[bin]]
+name = "elementary-1"
+path = "src/elementary/1-hello-world.rs"
+[[bin]]
+name = "elementary-2"
+path = "src/elementary/2-hello.rs"
+[[bin]]
+name = "elementary-3"
+path = "src/elementary/3-hello-alice-bob.rs"
+[[bin]]
+name = "elementary-4"
+path = "src/elementary/4-sum-n.rs"
+[[bin]]
+name = "elementary-5"
+path = "src/elementary/5-sum-n-multiples.rs"
+[[bin]]
+name = "elementary-6"
+path = "src/elementary/6-sum-or-product.rs"
+[[bin]]
+name = "elementary-7"
+path = "src/elementary/7-multiplication-table.rs"
+[[bin]]
+name = "elementary-8"
+path = "src/elementary/8-all-primes.rs"
+[[bin]]
+name = "elementary-9"
+path = "src/elementary/9-guessing-game.rs"
+[[bin]]
+name = "elementary-10"
+path = "src/elementary/10-leap-years.rs"
+[[bin]]
+name = "elementary-11"
+path = "src/elementary/11-compute-pi.rs"
