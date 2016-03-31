@@ -5,6 +5,7 @@ authors = ["CasualX <CasualX@github.com>"]
 
 [dependencies]
 rand = "0.3"
+unicode-segmentation = "0.1"
 
 [[bin]]
 name = "elementary-1"
@@ -39,3 +40,46 @@ path = "src/elementary/10-leap-years.rs"
 [[bin]]
 name = "elementary-11"
 path = "src/elementary/11-compute-pi.rs"
+
+[[bin]]
+name = "liststrings-1"
+path = "src/list, strings/1-largest-element.rs"
+[[bin]]
+name = "liststrings-2"
+path = "src/list, strings/2-reverse-list-inplace.rs"
+[[bin]]
+name = "liststrings-3"
+path = "src/list, strings/3-has-element.rs"
+[[bin]]
+name = "liststrings-4"
+path = "src/list, strings/4-odd-positions.rs"
+[[bin]]
+name = "liststrings-5"
+path = "src/list, strings/5-running-total.rs"
+[[bin]]
+name = "liststrings-6"
+path = "src/list, strings/6-test-palindrome.rs"
+[[bin]]
+name = "liststrings-7"
+path = "src/list, strings/7-sum-construct.rs"
+[[bin]]
+name = "liststrings-8"
+path = "src/list, strings/8-on-all.rs"
+[[bin]]
+name = "liststrings-10"
+path = "src/list, strings/10-alternating.rs"
+[[bin]]
+name = "liststrings-11"
+path = "src/list, strings/11-merge-sorted.rs"
+[[bin]]
+name = "liststrings-12"
+path = "src/list, strings/12-rotate-list.rs"
+[[bin]]
+name = "liststrings-13"
+path = "src/list, strings/13-fibonacci.rs"
+[[bin]]
+name = "liststrings-14"
+path = "src/list, strings/14-number-digits.rs"
+[[bin]]
+name = "liststrings-18"
+path = "src/list, strings/18-framed.rs"
