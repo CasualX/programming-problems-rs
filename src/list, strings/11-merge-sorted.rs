@@ -1,65 +1,50 @@
 // Write a function that merges two sorted lists into a new list.
 
+use std::cmp::Ordering;
+
 fn main() {
-	let left = [1, 5, 7];
-	let right = [-2, 8, 9];
+    let a: Vec<i32> = vec![8, 10, 55, 60];
+    let b: Vec<i32> = vec![-2, 16, 32, 114];
 
-	let merged = merge_sorted(&left, &right);
+    let c = merge_sorted(&a, &b);
 
-	println!("Merge sorted {:?} and {:?} results {:?}.", left, right, merged);
+    println!("{:?} ~ {:?} => {:?}", a, b, c);
 }
 
-fn merge_sorted<T: Copy + Ord>(left: &[T], right: &[T]) -> Vec<T> {
-	let mut vec: Vec<T> = Vec::with_capacity(left.len() + right.len());
+fn merge_sorted<T: Copy + Ord>(a: &[T], b: &[T]) -> Vec<T> {
 
-	// I couldn't find a way to compose this using the iterator building blocks, so back to basics it is!
-	// This is also probably horribly inefficient, it definitely looks inelegant and fugly.
+    let mut i = 0;
+    let mut j = 0;
+    let mut vec: Vec<T> = Vec::with_capacity(a.len() + b.len());
 
-	let mut left_it = left.iter().peekable();
-	let mut right_it = right.iter().peekable();
-
-	loop {
-		// Ok Borrowck complains that I cannot borrow left_it or right_it as mutable to call .next() on it while I'm still holding on to the peeked values
-		// Idk how to solve this elegantly, so just slap this on it
-		let side: bool; // false = left, true = right
-
-		{
-			let left_val = left_it.peek();
-			let right_val = right_it.peek();
-
-			if let Some(&left_val) = left_val {
-				if let Some(&right_val) = right_val {
-					vec.push(
-						*if *left_val < *right_val {
-							side = false;
-							left_val
-						}
-						else {
-							side = true;
-							right_val
-						});
-				}
-				else {
-					side = false;
-					vec.push(*left_val);
-				}
-			}
-			else if let Some(&right_val) = right_val {
-				side = true;
-				vec.push(*right_val);
-			}
-			else {
-				break;
-			}
-		}
-
-		// Now all peeked borrows are gone and this will work
-		if side {
-			right_it.next();
-		}
-		else {
-			left_it.next();
-		}
-	}
-	vec
+    while i < a.len() || j < b.len() {
+        match (a.get(i), b.get(j)) {
+            (None, Some(&x)) => {
+                vec.push(x);
+                j += 1;
+            }
+            (Some(&x), None) => {
+                vec.push(x);
+                i += 1;
+            }
+            (Some(&x), Some(&y)) => {
+                match x.cmp(&y) {
+                    Ordering::Less => {
+                        vec.push(x);
+                        i += 1;
+                    }
+                    Ordering::Greater => {
+                        vec.push(y);
+                        j += 1;
+                    }
+                    Ordering::Equal => {
+                        vec.push(y);
+                        j += 1;
+                    }
+                }
+            }
+            (None, None) => unreachable!("Never get here"),
+        }
+    }
+    vec
 }
