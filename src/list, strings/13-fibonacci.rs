@@ -1,32 +1,36 @@
 // Write a function that computes the list of the first 100 Fibonacci numbers.
 
+extern crate num;
+
+use num::One;
+use std::mem;
+use std::ops::Add;
+ 
+struct Fib<T> {
+    curr: T,
+    next: T,
+} 
+ 
+impl<T> Fib<T> where T: One {
+    fn new() -> Self {
+        Fib {curr: T::one(), next: T::one()}
+    }
+}
+ 
+impl<T> Iterator for Fib<T> 
+where T: Clone, for <'a> &'a T: Add<Output=T> {
+    type Item = T;
+ 
+    fn next(&mut self) -> Option<Self::Item>{
+        mem::swap(&mut self.next, &mut self.curr);
+        self.next = &self.next + &self.curr;
+        Some(self.curr.clone())
+    }
+}
+ 
 fn main() {
-	// Excersise asks for first 100, but this overflows i64 :(
-	for it in fibonacci().take(20) {
-		println!("{}", it);
-	}
-}
-
-struct Fibonacci {
-	pub a: i64,
-	pub b: i64,
-}
-impl Iterator for Fibonacci {
-	type Item = i64;
-	fn next(&mut self) -> Option<i64> {
-		let result = self.a + self.b;
-		self.a = self.b;
-		self.b = result;
-		// Because we never return None, this is an infinite iterator
-		// We're practically limited by the accuracy of i64 however
-		Some(result)
-	}
-}
-
-// Creates an iterator over the fibonacci sequence
-fn fibonacci() -> Fibonacci {
-	Fibonacci {
-		a: 1,
-		b: 0,
-	}
+    // Excersise asks for first 100, but this overflows u64
+    for i in Fib::<u64>::new().take(50) {
+        println!("{}", i);
+    }
 }

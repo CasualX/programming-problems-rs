@@ -2,49 +2,62 @@
 
 use std::io::{self, Write};
 
-// The choice between sum or product is represented with this enum
-enum Op {
-	Sum,
-	Product,
+fn calc_sum(num: u64) -> u64 {
+
+	(1..num + 1).fold(0, |acc, x| acc + x)
+}
+
+fn calc_product(num: u64) -> u64 {
+
+	(1..num + 1).fold(1, |acc, x| acc * x)
 }
 
 fn main() {
-	print!("Enter a positive integer: ");
-	io::stdout().flush().unwrap();
+	println!("Calculates the sum or product of integers from 1 to n.");
 
-	let mut n = String::new();
-	io::stdin().read_line(&mut n).unwrap();
+	let mut number: u64;
 
-	let n: u32 = n.trim().parse().unwrap();
+	loop {
+		print!("Sum (+) or product (*)? ");
+		io::stdout().flush().unwrap();
 
-	print!("Sum (+) or product (*)? ");
-	io::stdout().flush().unwrap();
+		let mut input_choice = String::new();
 
-	let mut op = String::new();
-	io::stdin().read_line(&mut op).unwrap();
+		io::stdin().read_line(&mut input_choice).expect("Failed to read line.");
 
-	// Interpret the operator string by translating to the operator enum
-	let op = match op.trim() {
-		"+" => Op::Sum,
-		"*" => Op::Product,
-		_ => panic!("Invalid operator"),
-	};
+		print!("Input a number (n): ");
+		io::stdout().flush().unwrap();
 
-	// Calculate the result in two separate loops
-	let result = match op {
-		Op::Sum => {
-			(1..n + 1).fold(0, |acc, x| acc + x)
-		},
-		Op::Product => {
-			(1..n + 1).fold(1, |acc, x| acc * x)
-		},
-	};
+		let mut input_s = String::new();
 
-	println!("The {} of integers in range [1, {}] is {}.",
-		match op {
-			Op::Sum => "sum",
-			Op::Product => "product",
-		},
-		n,
-		result);
+		io::stdin().read_line(&mut input_s).expect("Failed to read line.");
+
+		match input_s.trim().parse() {
+			Ok(n) => {
+				number = n;
+			}
+			Err(_) => {
+				println!("Natural numbers only, please.");
+				continue;
+			}
+		};
+
+		match input_choice.trim() {
+			"*" => {
+				let product: u64 = calc_product(number);
+				println!("The product of integers from 1 to {} is {}", number, product);
+				break;
+			}
+			"+" => {
+				let sum: u64 = calc_sum(number);
+				println!("The sum of integers from 1 to {} is {}", number, sum);
+				break;
+			}
+			_ => {
+				println!("Not a valid choice!");
+				println!("Try: * for product, or + for sum");
+				continue;
+			}
+		};
+	}
 }

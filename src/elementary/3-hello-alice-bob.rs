@@ -19,5 +19,7 @@ fn main() {
 	// Only greet Alice and Bob
 	if name == "Alice" || name == "Bob" {
 		println!("Greetings, {}!", name);
+	} else {
+		println!("I don't know anyone by that name.");
 	}
 }

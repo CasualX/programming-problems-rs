@@ -6,6 +6,7 @@ authors = ["CasualX <CasualX@github.com>"]
 [dependencies]
 rand = "0.3"
 unicode-segmentation = "0.1"
+num="*"
 
 [[bin]]
 name = "elementary-1"
@@ -66,6 +67,9 @@ path = "src/list, strings/7-sum-construct.rs"
 name = "liststrings-8"
 path = "src/list, strings/8-on-all.rs"
 [[bin]]
+name = "liststrings-9"
+path = "src/list, strings/9-concatenate.rs"
+[[bin]]
 name = "liststrings-10"
 path = "src/list, strings/10-alternating.rs"
 [[bin]]
@@ -81,8 +85,20 @@ path = "src/list, strings/13-fibonacci.rs"
 name = "liststrings-14"
 path = "src/list, strings/14-number-digits.rs"
 [[bin]]
+name = "liststrings-15"
+path = "src/list, strings/15-calc.rs"
+[[bin]]
+name = "liststrings-16"
+path = "src/list, strings/16-sort.rs"
+[[bin]]
+name = "liststrings-17"
+path = "src/list, strings/17-binary-search.rs"
+[[bin]]
 name = "liststrings-18"
 path = "src/list, strings/18-framed.rs"
+[[bin]]
+name = "liststrings-19"
+path = "src/list, strings/19-pig-latin.rs"
 
 [[bin]]
 name = "intermediate-1"
