@@ -1,9 +1,16 @@
 // Write a function on_all that applies a function to every element of a list. Use it to print the first twenty perfect squares.
 
+extern crate num;
+use num::Num;
+use std::fmt::Display;
+
 fn main() {
-	on_all(1..20 + 1, |&x| {
-		println!("{}", x * x)
-	});
+	on_all(1..20 + 1, |&x| println!("{}", x * x));
+}
+
+#[allow(dead_code)]
+fn test<T: Copy + Num + Display>(x: &T) {
+	println!("{}", (*x) * (*x));
 }
 
 // Takes a generic Iterator and Fn

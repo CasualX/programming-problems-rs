@@ -1,92 +1,135 @@
 [package]
-name = "programming-problems"
+name = "spp"
 version = "0.1.0"
-authors = ["CasualX <CasualX@github.com>"]
+authors = ["FallDown<jere.kaplas@gmail.com>"]
 
 [dependencies]
-rand = "0.3"
-unicode-segmentation = "0.1"
+rand="*"
+unicode-segmentation = "0.1.2"
+num="*"
 
 [[bin]]
-name = "elementary-1"
-path = "src/elementary/1-hello-world.rs"
+name = "ele-1"
+path = "src/elementary/1-world.rs"
+
 [[bin]]
-name = "elementary-2"
-path = "src/elementary/2-hello.rs"
+name = "ele-2"
+path = "src/elementary/2-hey.rs"
+
 [[bin]]
-name = "elementary-3"
-path = "src/elementary/3-hello-alice-bob.rs"
+name = "ele-3"
+path = "src/elementary/3-hey-names.rs"
+
 [[bin]]
-name = "elementary-4"
-path = "src/elementary/4-sum-n.rs"
+name = "ele-4"
+path = "src/elementary/4-sum.rs"
+
 [[bin]]
-name = "elementary-5"
-path = "src/elementary/5-sum-n-multiples.rs"
+name = "ele-5"
+path = "src/elementary/5-multiples.rs"
+
 [[bin]]
-name = "elementary-6"
+name = "ele-6"
 path = "src/elementary/6-sum-or-product.rs"
-[[bin]]
-name = "elementary-7"
-path = "src/elementary/7-multiplication-table.rs"
-[[bin]]
-name = "elementary-8"
-path = "src/elementary/8-all-primes.rs"
-[[bin]]
-name = "elementary-9"
-path = "src/elementary/9-guessing-game.rs"
-[[bin]]
-name = "elementary-10"
-path = "src/elementary/10-leap-years.rs"
-[[bin]]
-name = "elementary-11"
-path = "src/elementary/11-compute-pi.rs"
 
 [[bin]]
-name = "liststrings-1"
-path = "src/list, strings/1-largest-element.rs"
-[[bin]]
-name = "liststrings-2"
-path = "src/list, strings/2-reverse-list-inplace.rs"
-[[bin]]
-name = "liststrings-3"
-path = "src/list, strings/3-has-element.rs"
-[[bin]]
-name = "liststrings-4"
-path = "src/list, strings/4-odd-positions.rs"
-[[bin]]
-name = "liststrings-5"
-path = "src/list, strings/5-running-total.rs"
-[[bin]]
-name = "liststrings-6"
-path = "src/list, strings/6-test-palindrome.rs"
-[[bin]]
-name = "liststrings-7"
-path = "src/list, strings/7-sum-construct.rs"
-[[bin]]
-name = "liststrings-8"
-path = "src/list, strings/8-on-all.rs"
-[[bin]]
-name = "liststrings-10"
-path = "src/list, strings/10-alternating.rs"
-[[bin]]
-name = "liststrings-11"
-path = "src/list, strings/11-merge-sorted.rs"
-[[bin]]
-name = "liststrings-12"
-path = "src/list, strings/12-rotate-list.rs"
-[[bin]]
-name = "liststrings-13"
-path = "src/list, strings/13-fibonacci.rs"
-[[bin]]
-name = "liststrings-14"
-path = "src/list, strings/14-number-digits.rs"
-[[bin]]
-name = "liststrings-18"
-path = "src/list, strings/18-framed.rs"
+name = "ele-7"
+path = "src/elementary/7-mult-table.rs"
 
 [[bin]]
-name = "intermediate-1"
+name = "ele-8"
+path = "src/elementary/8-primes.rs"
+
+[[bin]]
+name = "ele-9"
+path = "src/elementary/9-guess.rs"
+
+[[bin]]
+name = "ele-10"
+path = "src/elementary/10-leap-year.rs"
+
+[[bin]]
+name = "ele-11"
+path = "src/elementary/11-pi.rs"
+
+[[bin]]
+name = "ls-1"
+path = "src/lists_strings/1-largest-element.rs"
+
+[[bin]]
+name = "ls-2"
+path = "src/lists_strings/2-reverse-list.rs"
+
+[[bin]]
+name = "ls-3"
+path = "src/lists_strings/3-has-element.rs"
+
+[[bin]]
+name = "ls-4"
+path = "src/lists_strings/4-odd-positions.rs"
+
+[[bin]]
+name = "ls-5"
+path = "src/lists_strings/5-running-total.rs"
+
+[[bin]]
+name = "ls-6"
+path = "src/lists_strings/6-palindromes.rs"
+
+[[bin]]
+name = "ls-7"
+path = "src/lists_strings/7-sums.rs"
+
+[[bin]]
+name = "ls-8"
+path = "src/lists_strings/8-on-all.rs"
+
+[[bin]]
+name = "ls-9"
+path = "src/lists_strings/9-concatenate.rs"
+
+[[bin]]
+name = "ls-10"
+path = "src/lists_strings/10-alternate.rs"
+
+[[bin]]
+name = "ls-11"
+path = "src/lists_strings/11-merge-sorted.rs"
+
+[[bin]]
+name = "ls-12"
+path = "src/lists_strings/12-rotate.rs"
+
+[[bin]]
+name = "ls-13"
+path = "src/lists_strings/13-fibonacci.rs"
+
+[[bin]]
+name = "ls-14"
+path = "src/lists_strings/14-digits.rs"
+
+[[bin]]
+name = "ls-15"
+path = "src/lists_strings/15-calc.rs"
+
+[[bin]]
+name = "ls-16"
+path = "src/lists_strings/16-sort.rs"
+
+[[bin]]
+name = "ls-17"
+path = "src/lists_strings/17-binary-search.rs"
+
+[[bin]]
+name = "ls-18"
+path = "src/lists_strings/18-framed.rs"
+
+[[bin]]
+name = "ls-19"
+path = "src/lists_strings/19-pig-latin.rs"
+
+[[bin]]
+name = "inter-1"
 path = "src/intermediate/1-permutations.rs"
-[[bin]]
-name = "intermediate-2"
-path = "src/intermediate/2-leap-years.rs"
+
+
