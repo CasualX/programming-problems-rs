@@ -2,20 +2,30 @@
 
 use std::io::{self, Write};
 
+fn calc_sum(num: u32) -> u32 {
+    let mod_filter = |&n: &u32| -> bool { n % 3 == 0 || n % 5 == 0 };
+	(1..num + 1).filter(mod_filter).fold(0, |acc, x| acc + x)
+}
+
 fn main() {
-	print!("Enter a positive integer: ");
-	io::stdout().flush().unwrap();
+	println!("Calculates the sum of integers, that are multiples of 3 or 5, from 1 to n");
 
-	let mut n = String::new();
-	io::stdin().read_line(&mut n).unwrap();
+	let number: u32;
 
-	// Shadow the local variable `n` by its read-only integer representation
-	let n: u32 = n.trim().parse().unwrap();
+	loop {
+		println!("Enter a positive integer (n): ");
+		io::stdout().flush().unwrap();
 
-	// Sum the integers using iterators
-	let sum = (1..n + 1)
-		.filter(|i| i % 3 == 0 || i % 5 == 0)
-		.fold(0, |acc, i| acc + i);
+		let mut s_input = String::new();
 
-	println!("The sum of integers in range [1, {}] that are a multiple of 3 or 5 is {}.", n, sum);
+		io::stdin().read_line(&mut s_input).expect("Failed to read line.");
+			
+		match s_input.trim().parse() {
+			Ok(n) 	=> { number = n; break; },
+			Err(_) 	=> { println!("A whole integer, please..."); continue; },
+		};
+
+	};
+		let sum = calc_sum(number);
+		println!("The sum of integers from 1 to {} is {}", number, sum);
 }
