@@ -6,6 +6,7 @@ authors = ["CasualX <CasualX@github.com>"]
 [dependencies]
 rand = "0.3"
 unicode-segmentation = "0.1"
+num="*"
 
 [[bin]]
 name = "elementary-1"
@@ -98,6 +99,7 @@ path = "src/list, strings/18-framed.rs"
 [[bin]]
 name = "ls-19"
 path = "src/list, strings/19-pig-latin.rs"
+
 [[bin]]
 name = "intermediate-1"
 path = "src/intermediate/1-permutations.rs"
