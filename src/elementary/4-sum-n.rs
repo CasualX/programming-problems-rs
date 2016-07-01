@@ -2,21 +2,27 @@
 
 use std::io::{self, Write};
 
+fn calc_sum(num: u32) -> u32 {
+	(1..num + 1).fold(0, |acc, x| acc + x)
+}
+
 fn main() {
-	print!("Enter a positive integer: ");
-	io::stdout().flush().unwrap();
+	println!("Calculates the sum of numbers from 1 to n.");
+	let number: u32;
 
-	let mut n = String::new();
-	io::stdin().read_line(&mut n).unwrap();
+	loop {
+		print!("Enter a positive integer (n): ");
+		io::stdout().flush().unwrap();
+		let mut s_input = String::new();
 
-	// Shadow the local variable `n` by its read-only integer representation
-	let n: u32 = n.trim().parse().unwrap();
+		io::stdin().read_line(&mut s_input).expect("Failed to read line.");
+			
+		match s_input.trim().parse() {
+			Ok(n) 	=> { number = n; break; },
+			Err(_) 	=> { println!("A whole integer, please..."); continue; },
+		};
 
-	// Sum the integers using basic loop
-	let mut sum = 0u32;
-	for i in 1..n + 1 {
-		sum += i;
-	}
-
-	println!("The sum of integers in range [1, {}] is {}.", n, sum);
+	};
+		let sum = calc_sum(number);
+		println!("The sum of integers from 1 to {} is {}", number, sum);
 }
