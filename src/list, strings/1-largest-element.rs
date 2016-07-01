@@ -1,24 +1,20 @@
 // Write a function that returns the largest element in a list.
 
-fn main() {
-	let values = [5, 2, 8, -1];
-	println!("Largest in {:?} is {:?}.", values, largest(&values));
+fn largest_element<T: Ord>(list: &[T]) -> Option<&T> {
+	let mut largest = None;
+	for x in list {
+		if let Some(n) = Some(x) {
+			if Some(n) > largest {
+				largest = Some(n)
+			}
+		}
+	}
+	largest
 }
 
-fn largest<T: Ord>(list: &[T]) -> Option<&T> {
-	// Essentially folding over the list, taking the max value
-	// Needs special care for empty lists (hence the Option)
-	list.iter().fold(None, |acc, x| {
-		if let Some(acc) = acc {
-			if x > acc {
-				Some(x)
-			}
-			else {
-				Some(acc)
-			}
-		}
-		else {
-			Some(x)
-		}
-	})
+fn main() {
+	let list = [-5, -7, 2, 0, -1, 7, 12, 6, 4, -10];
+	println!("Largest element in list: {:?} is {:?}", list, largest_element(&list));
+	let empty_list: Vec<i32> = Vec::new();
+	println!("Largest element in list: {:?} is {:?}", empty_list, largest_element(&empty_list));
 }
